@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "boulder-app": "apps/boulder-app",
+    "boulder-app-e2e": "apps/boulder-app-e2e",
     "front-end": "apps/front-end",
     "front-end-e2e": "apps/front-end-e2e"
   }
