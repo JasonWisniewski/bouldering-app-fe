@@ -7,10 +7,12 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs,
-  setupIonicReact
+  IonHeader,
+  IonToolbar,
+  setupIonicReact, IonTitle
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import {checkbox, search, settings, map} from 'ionicons/icons';
+import {checkbox, search, settings, map, person} from 'ionicons/icons';
 import MapPage from './pages/map-page';
 import SendsPage from './pages/sends-page';
 import SettingsPage from './pages/settings-page';
@@ -55,6 +57,12 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/settings">
             <SettingsPage />
+          </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
+          <Route exact path="/signup">
+            <SignupPage />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
