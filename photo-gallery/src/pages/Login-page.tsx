@@ -6,7 +6,7 @@ const LoginPage: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Login</IonTitle>
+          <IonTitle>Utah Bouldering</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

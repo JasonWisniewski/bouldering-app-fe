@@ -6,7 +6,7 @@ const SendsPage: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Sends</IonTitle>
+          <IonTitle>Utah Bouldering</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

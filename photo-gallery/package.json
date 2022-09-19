@@ -12,6 +12,8 @@
     "@capacitor/keyboard": "4.0.1",
     "@capacitor/preferences": "^4.0.1",
     "@capacitor/status-bar": "4.0.1",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@ionic/pwa-elements": "^3.1.1",
     "@ionic/react": "^6.0.0",
     "@ionic/react-router": "^6.0.0",
