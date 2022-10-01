@@ -10,7 +10,7 @@ const SettingsPage: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        
+
         <ExploreContainer name="Search page" />
       </IonContent>
     </IonPage>

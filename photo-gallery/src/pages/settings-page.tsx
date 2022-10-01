@@ -1,9 +1,13 @@
 import styled from '@emotion/styled';
-import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon, IonButtons} from '@ionic/react';
+import {IonContent, IonModal, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon, IonButtons} from '@ionic/react';
 import {person} from 'ionicons/icons'
 import ExploreContainer from '../components/ExploreContainer';
+import SignIn from '../components/sign-in/sign-in';
+import {useState} from "react";
 
 const SettingsPage: React.FC = () => {
+
+  const [showModal, setShowModal] = useState(true);
 
   const Title = styled.div(`
   display: flex;
@@ -24,7 +28,7 @@ const SettingsPage: React.FC = () => {
           {/*TODO make below in seperate component*/}
           {/*TODO if logged in go to account else signin/ signup*/}
           <IonButtons slot="start"  style={{padding: `16px`}} >
-            <IonIcon icon={person} style={{fontSize: `24px`}}/>
+            <IonIcon onClick={() => setShowModal(true)} icon={person} style={{fontSize: `24px`}}/>
           </ IonButtons>
 
         </IonToolbar>
@@ -32,6 +36,9 @@ const SettingsPage: React.FC = () => {
       <IonContent fullscreen>
         <ExploreContainer name="Settings"/>
       </IonContent>
+      <IonModal isOpen={showModal}>
+        <SignIn setShowModal={setShowModal} />
+      </IonModal>
     </IonPage>
   );
 };
