@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React from "react";
+import {useState} from "react";
 import {IonButton, IonContent, IonInput, IonItem, IonLabel, IonList} from "@ionic/react";
 
 export interface SignUpProps {
@@ -7,6 +8,8 @@ export interface SignUpProps {
 }
 
 const SignUp = ({setShowModal}: SignUpProps) => {
+
+  const [userName, setUserName] = useState('')
 
   const handleSubmit = () => {
     fetch("http://localhost:3002/users", {
@@ -17,8 +20,8 @@ const SignUp = ({setShowModal}: SignUpProps) => {
         // 'Accept': 'application.json'
       },
       body: JSON.stringify({
-            email: 'userfrom@FE222.com',
-            password: 'passymcfe'
+          email: 'userfrom@FE222.com',
+          password: 'passymcfe'
         }
       )
     }).then((response) => {
@@ -29,7 +32,7 @@ const SignUp = ({setShowModal}: SignUpProps) => {
         console.log('failed to create account')
       }
     })
-}
+  }
 
   // fetch('/quad_messages/send_quad', {
   //   method: 'POST',
@@ -63,32 +66,35 @@ const SignUp = ({setShowModal}: SignUpProps) => {
         >
           X
         </IonButton>
-        <IonList>
-          <IonItem>
-            <IonLabel position="stacked">User Name</IonLabel>
-            <IonInput value='' type='text' required={true}> </IonInput>
-          </IonItem>
-          <IonItem>
-            <IonLabel position="stacked">Email</IonLabel>
-            <IonInput value='' type='email' required={true}> </IonInput>
-          </IonItem>
-          <IonItem>
-            <IonLabel position="stacked">Password</IonLabel>
-            <IonInput value='' type='password' required={true}> </IonInput>
-          </IonItem>
-          <IonItem>
-            <IonLabel position="stacked">Confirm Password</IonLabel>
-            <IonInput value='' type='password' required={true}> </IonInput>
-          </IonItem>
-          <IonItem>
-            <IonLabel position="stacked">Already have an account?
-              <a>Sign in!</a>
-            </IonLabel>
-          </IonItem>
-        </IonList>
-        <IonButton onClick={() => handleSubmit()}>
-          Submit!
-        </IonButton>
+        <form>
+
+          <IonList>
+            <IonItem>
+              <IonLabel position="stacked">User Name</IonLabel>
+              <IonInput value='' type='text' required={true}> </IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Email</IonLabel>
+              <IonInput value='' type='email' required={true}> </IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Password</IonLabel>
+              <IonInput value='' type='password' required={true}> </IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Confirm Password</IonLabel>
+              <IonInput value='' type='password' required={true}> </IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Already have an account?
+                <a>Sign in!</a>
+              </IonLabel>
+            </IonItem>
+          </IonList>
+          <IonButton onClick={() => handleSubmit()}>
+            Submit!
+          </IonButton>
+        </form>
       </IonContent>
     </>
   )
