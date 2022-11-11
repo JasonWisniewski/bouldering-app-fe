@@ -7,6 +7,45 @@ export interface SignUpProps {
 }
 
 const SignUp = ({setShowModal}: SignUpProps) => {
+
+  const handleSubmit = () => {
+    fetch("http://localhost:3002/users", {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        // 'Accept': 'application.json'
+      },
+      body: JSON.stringify({
+            email: 'userfrom@FE222.com',
+            password: 'passymcfe'
+        }
+      )
+    }).then((response) => {
+      console.log(response.json)
+      if (response.status >= 200 && response.status < 300) {
+        console.log(response.json())
+      } else {
+        console.log('failed to create account')
+      }
+    })
+}
+
+  // fetch('/quad_messages/send_quad', {
+  //   method: 'POST',
+  //   headers: {
+  //     'X-CSRF-Token': props.authenticityToken,
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     message: {
+  //       id: message.id,
+  //       code: message.code,
+  //       subject: message.title,
+  //       text: messageBody
+  //     }
+  //   })
+
   return (
     <>
       <IonContent>
@@ -27,26 +66,29 @@ const SignUp = ({setShowModal}: SignUpProps) => {
         <IonList>
           <IonItem>
             <IonLabel position="stacked">User Name</IonLabel>
-            <IonInput value=''> </IonInput>
+            <IonInput value='' type='text' required={true}> </IonInput>
           </IonItem>
           <IonItem>
             <IonLabel position="stacked">Email</IonLabel>
-            <IonInput value=''> </IonInput>
+            <IonInput value='' type='email' required={true}> </IonInput>
           </IonItem>
           <IonItem>
             <IonLabel position="stacked">Password</IonLabel>
-            <IonInput value=''> </IonInput>
+            <IonInput value='' type='password' required={true}> </IonInput>
           </IonItem>
           <IonItem>
             <IonLabel position="stacked">Confirm Password</IonLabel>
-            <IonInput value=''> </IonInput>
+            <IonInput value='' type='password' required={true}> </IonInput>
           </IonItem>
           <IonItem>
-            {/*<IonButton OnClick={() => console.log('click')}>*/}
-            {/*  <IonLabel position="stacked">Don't have an account? Signup!</IonLabel>*/}
-            {/*</IonButton>*/}
+            <IonLabel position="stacked">Already have an account?
+              <a>Sign in!</a>
+            </IonLabel>
           </IonItem>
         </IonList>
+        <IonButton onClick={() => handleSubmit()}>
+          Submit!
+        </IonButton>
       </IonContent>
     </>
   )

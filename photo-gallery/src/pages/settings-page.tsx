@@ -4,10 +4,11 @@ import {person} from 'ionicons/icons'
 import ExploreContainer from '../components/ExploreContainer';
 import SignIn from '../components/sign-in/sign-in';
 import {useState} from "react";
+import SignUp from "../components/sign-up/sign-up";
 
 const SettingsPage: React.FC = () => {
 
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const Title = styled.div(`
   display: flex;
@@ -37,7 +38,8 @@ const SettingsPage: React.FC = () => {
         <ExploreContainer name="Settings"/>
       </IonContent>
       <IonModal isOpen={showModal}>
-        <SignIn setShowModal={setShowModal} />
+        {/*<SignIn setShowModal={setShowModal} />*/}
+        <SignUp setShowModal={setShowModal} />
       </IonModal>
     </IonPage>
   );
